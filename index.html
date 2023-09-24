@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Beriberi</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='./src/script.js'></script>
+
+    <style>
+        @media (max-width: 680px) {
+
+            #cards {
+
+                width: 100%;
+                height: 25%;
+                flex-wrap: wrap;
+            }
+            #cards .op{
+                width: 100%;
+                height: auto;
+            }
+
+        }
+
+        * {
+            margin: 15;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            border: 3px solid #0a0a0a;
+            border-radius: 2px;
+            font: normal 15pt arial;
+            background-color: #0a0a0a;
+            color: antiquewhite;
+            display: flex;
+            justify-content: center;
+            
+            display: block;
+            text-align: center;
+
+        }
+
+
+
+        input {
+
+            text-rendering: auto;
+            color: fieldtext;
+            letter-spacing: normal;
+            word-spacing: normal;
+            line-height: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+            text-align: start;
+            appearance: auto;
+            -webkit-rtl-ordering: logical;
+            cursor: text;
+            background-color: field;
+            margin: 0em;
+            padding: 1px 2px;
+            border-width: 2px;
+            border-style: inset;
+            border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+            border-image: initial;
+        }
+
+        input.checkbox{
+            width: 20px;
+            height: 20px;
+        }
+
+div#sintomas {
+    text-align: left;
+    margin-left: 50px;
+}
+        #cards {
+
+
+            display: flex;
+            justify-content: center;
+
+            align-items: center;
+
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            flex-direction: row;
+            padding: 15px;
+
+
+        }
+
+        #cards .op {
+            align-content: center;
+            align-items: center;
+
+            background: #ff9f0e;
+            color: antiquewhite;
+            border: 3px solid #0a0a0a;
+            border-radius: 5px;
+            padding: 8px;
+
+
+            margin: 5px;
+            color: antiquewhite;
+            width: 50%;
+            height: 30%;
+        }
+
+        a {
+            color: antiquewhite;
+            text-decoration: none;
+        }
+
+
+        button {
+            --border-radius: 15px;
+            --border-width: 4px;
+            appearance: none;
+            position: relative;
+            padding: 1em 2em;
+            background-color: #0a0a0a;
+            font-family: "Roboto", Arial, "Segoe UI", sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            z-index: 2;
+        }
+           
+
+        button::after {
+            --m-i: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
+            --m-o: content-box, padding-box;
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            padding: var(--border-width);
+            border-radius: var(--border-radius);
+            background-image: conic-gradient(#488cfb,
+                    #29dbbc,
+                    #ddf505,
+                    #ff9f0e,
+                    #e440bb,
+                    #655adc,
+                    #488cfb);
+            -webkit-mask-image: var(--m-i), var(--m-i);
+            mask-image: var(--m-i), var(--m-i);
+            -webkit-mask-origin: var(--m-o);
+            mask-origin: var(--m-o);
+            -webkit-mask-clip: var(--m-o);
+            mask-composite: exclude;
+            -webkit-mask-composite: destination-out;
+            filter: hue-rotate(0);
+            animation: rotate-hue linear 500ms infinite;
+            animation-play-state: paused;
+        }
+
+        button:hover::after {
+            animation-play-state: running;
+        }
+
+        @keyframes rotate-hue {
+            to {
+                filter: hue-rotate(1turn);
+            }
+        }
+
+        button,
+        button::after {
+            box-sizing: border-box;
+        }
+
+        button:active {
+            --border-width: 5px;
+        }
+
+
+
+    </style>
+
+
+
+
+</head>
+
+<body>
+
+    <div>
+        PESO:
+        <input type="number" name="peso" id="peso">
+        <br>
+        <br>
+        ALTURA:
+        <input type="number" name="altura" id="altura">
+
+        <br>
+        <br>
+        <button onclick="calculo()">calcular</button>
+
+    </div>
+    <br>
+
+    <div id="res">IMC: </div>
+
+
+
+
+    <div id="cards">
+<h1>Cardapio rico em B1</h1>
+        <div class="op"> <a href="./src/imagens-ou-docs/CardápioMensal1.pdf">OPÇÃO 1</a></div>
+        <div class="op"> <a href="./src/imagens-ou-docs/CardápioMensal1.pdf">OPÇÃO 2</a></div>
+        <div class="op"> <a href="./src/imagens-ou-docs/CardápioMensal1.pdf">OPÇAO 3</a></div>
+        <div class="op"> <a href="./src/imagens-ou-docs/CardápioMensal1.pdf">OPÇÃO 4</a></div>
+        <div class="op"> <a href="./src/imagens-ou-docs/CardápioMensal1.pdf">OPÇÃO 5</a></div>
+        <div class="op"> <a href="./src/imagens-ou-docs/CardápioMensal1.pdf">OPÇAO 6</a></div>
+    </div>
+
+    <div id="sintomas">
+<h2>Sintomas:</h2>
+
+    <input type="checkbox" value="valor 1" class="checkbox"> Perda de apetite
+    <br /> 
+    <input type="checkbox" value="valor 2" class="checkbox"> Fraqueza 
+    <br /> 
+    <input type="checkbox" value="valor 3" class="checkbox"> Dor nos membros
+    <br />
+    <input type="checkbox" value="valor 4" class="checkbox"> Falta de ar
+    <br />
+    <input type="checkbox" value="valor 5" class="checkbox"> Afetar a função neural e cardiovascular
+    <br /> 
+    <input type="checkbox" value="valor 6" class="checkbox"> Pés e pernas 
+    <br /> 
+    <input type="checkbox" value="valor 7" class="checkbox"> Irritabilidade 
+    <br/>
+    <input type="checkbox" value="valor 5" class="checkbox"> Distúrbios do sono
+    <br /> 
+    <input type="checkbox" value="valor 6" class="checkbox"> Desconforto abdominal
+    <br /> 
+    <input type="checkbox" value="valor 7" class="checkbox"> Perda de peso. 
+    <br/>
+  
+    
+    
+</div>
+<br>
+<button onclick="qtdChecados()"> Presentes
+
+</button>
+
+<div id="campo">
+<br>
+
+
+</div>
+
+
+</body>
+
+</html>
